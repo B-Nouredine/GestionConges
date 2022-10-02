@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/menu_profile">
+
+    <fragment
+        android:id="@+id/menu_leave_req"
+        android:name="com.ensaf.nour.gestion_conges.employee.empHome.fragments.LeaveReqFragment"
+        android:label="@string/leave_request"
+        tools:layout="@layout/fragment_leave_req" />
+    <fragment
+        android:id="@+id/menu_chat"
+        android:name="com.ensaf.nour.gestion_conges.employee.empHome.fragments.MessagesFragment"
+        android:label="@string/chat"
+        tools:layout="@layout/fragment_messages" />
+    <fragment
+        android:id="@+id/menu_attachment"
+        android:name="com.ensaf.nour.gestion_conges.employee.empHome.fragments.AttachmentFragment"
+        android:label="@string/send_attachment"
+        tools:layout="@layout/fragment_attachment" />
+    <fragment
+        android:id="@+id/menu_profile"
+        android:name="com.ensaf.nour.gestion_conges.employee.empHome.fragments.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/menu_settings"
+        android:name="com.ensaf.nour.gestion_conges.employee.empHome.fragments.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

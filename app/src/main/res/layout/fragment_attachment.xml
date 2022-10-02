@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgLite"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".employee.empHome.fragments.AttachmentFragment">
+
+    <Button
+        android:id="@+id/btn_choose_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_file"
+        app:icon="@drawable/ic_attachment"
+        app:iconGravity="start"/>
+
+    <EditText
+        android:id="@+id/file_name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/btn_choose_file"
+        android:hint="@string/file_name"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/file_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/upload_file_progress_bar"
+        android:layout_below="@+id/btn_choose_file"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btn_upload_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/greenStrong"
+        android:text="@string/upload"
+        app:icon="@drawable/ic_upload"
+        app:iconGravity="start" />
+
+    <ProgressBar
+        android:id="@+id/upload_file_progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_upload_file"
+        android:layout_marginBottom="20dp"
+        />
+
+</RelativeLayout>

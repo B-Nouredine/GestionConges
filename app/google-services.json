@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "280795407981",
+    "project_id": "gestion-conges-aug2022",
+    "storage_bucket": "gestion-conges-aug2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280795407981:android:7e1d9de6735d4d88cfc164",
+        "android_client_info": {
+          "package_name": "com.ensaf.nour.gestion_conges"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280795407981-spnav2q39t1tnr5j46p1k4j1ah9m8bcv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ensaf.nour.gestion_conges",
+            "certificate_hash": "6323c466c63696ea2b4711d35fef653cea6d7e64"
+          }
+        },
+        {
+          "client_id": "280795407981-sspv2qrkidtvuauf5dfksg1s686evv2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApc0cSD0hfJodCX4ZwxH2kdYDfghGqTIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280795407981-sspv2qrkidtvuauf5dfksg1s686evv2f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
