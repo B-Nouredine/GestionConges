@@ -9,6 +9,7 @@ import android.view.View;
 import com.ensaf.nour.gestion_conges.MainActivity;
 import com.ensaf.nour.gestion_conges.R;
 import com.ensaf.nour.gestion_conges.admin.employees.EmployeesActivity;
+import com.ensaf.nour.gestion_conges.admin.leaveReq.AdminLeaveRequestsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminHomeActivity extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class AdminHomeActivity extends AppCompatActivity {
 
     public void redirectToLeaveRequests(View v)
     {
-
+        startActivity(new Intent(AdminHomeActivity.this, AdminLeaveRequestsActivity.class));
     }
 
     public void redirectToSettings(View v)

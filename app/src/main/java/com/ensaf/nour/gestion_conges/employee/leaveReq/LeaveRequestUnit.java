@@ -6,12 +6,21 @@ public class LeaveRequestUnit {
     private String endDate;
     private boolean isAnswered;
     private boolean isAccepted;
+    private String employeeName;
 
     public LeaveRequestUnit(String startDate, String endDate, boolean isAnswered, boolean isAccepted) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.isAnswered = isAnswered;
         this.isAccepted = isAccepted;
+    }
+
+    public LeaveRequestUnit(String startDate, String endDate, boolean isAnswered, boolean isAccepted, String employeeName) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.isAnswered = isAnswered;
+        this.isAccepted = isAccepted;
+        this.employeeName = employeeName;
     }
 
     public String getStartDate() {
@@ -44,5 +53,13 @@ public class LeaveRequestUnit {
 
     public void setAccepted(boolean accepted) {
         isAccepted = accepted;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 }

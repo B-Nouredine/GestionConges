@@ -35,6 +35,8 @@
     <string name="add">Add</string>
     <string name="update">Update</string>
     <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
     <string name="messages">Messages</string>
     <string name="message">Message</string>
     <string name="title">Title</string>
@@ -42,6 +44,7 @@
     <string name="file_name">Enter File Name</string>
     <string name="upload">Upload</string>
     <string name="employees">Employees</string>
+    <string name="employee">Employee</string>
     <string name="started_work_at">Started work at</string>
     <string name="attachments">Attachments</string>
     <string name="welcome">Welcome</string>

@@ -16,10 +16,10 @@
         android:theme="@style/Theme.GestionConges"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".admin.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".LeaveRequestsActivity"
+            android:name=".admin.leaveReq.AdminLeaveRequestsActivity"
             android:exported="false" />
         <activity
             android:name=".admin.employees.UpdateEmpActivity"

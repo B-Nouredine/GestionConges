@@ -130,7 +130,6 @@ public class MessagesActivity extends AppCompatActivity implements AdapterItemOn
                                         }
 
                                         ((MessagesAdapter) (messagesRecyclerView.getAdapter())).setMessagesUnits(messagesUnits);
-                                        messagesRecyclerView.getAdapter().notifyItemChanged(messagesUnits.size()-1);
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
