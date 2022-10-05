@@ -27,7 +27,6 @@ public class AdminLeaveRequestAdapter extends RecyclerView.Adapter<AdminLeaveReq
     public AdminLeaveRequestAdapter(Context context, List<LeaveRequestUnit> leaveRequestUnits) {
         this.context = context;
         this.leaveRequestUnits = leaveRequestUnits;
-        Toast.makeText(this.context, "2", Toast.LENGTH_SHORT).show();
     }
 
     public void setLeaveRequestUnits(List<LeaveRequestUnit> leaveRequestUnits) {

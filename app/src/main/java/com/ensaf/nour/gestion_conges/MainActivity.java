@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     startLoginActivity();
                 }
             }
-        }, 1000);
+        }, 400);
     }
 
     void startLoginActivity() {

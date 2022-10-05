@@ -97,8 +97,6 @@ public class AdminLeaveRequestsActivity extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(AdminLeaveRequestsActivity.this, "1", Toast.LENGTH_SHORT).show();
-
         findViewById(R.id.leave_req_back_arrow).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

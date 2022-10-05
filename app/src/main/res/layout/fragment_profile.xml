@@ -42,7 +42,6 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             app:riv_oval="true"
-            android:background="@drawable/round_back_theme_10"
             android:src="@drawable/ic_profile"/>
 
     </RelativeLayout>
