@@ -12,7 +12,10 @@
         <entry key="app/src/main/res/drawable/round_back_theme_10.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/round_back_theme_green10.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/round_back_theme_green_10.xml" value="0.123" />
+        <entry key="app/src/main/res/drawable/rounded_back_theme_yellow.xml" value="0.123" />
+        <entry key="app/src/main/res/layout/activity_add_update_emp.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_admin_home.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/activity_admin_profile.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_attachments.xml" value="0.17028985507246377" />
         <entry key="app/src/main/res/layout/activity_attachments2.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_chat_screen.xml" value="0.1" />
