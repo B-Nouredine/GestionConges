@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.ensaf.nour.gestion_conges.R;
 import com.ensaf.nour.gestion_conges.dao.EmployeeDao;
+import com.ensaf.nour.gestion_conges.dao.LeaveDao;
 import com.ensaf.nour.gestion_conges.employee.leaveReq.LeaveRequestUnit;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,9 +27,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class AdminLeaveRequestsActivity extends AppCompatActivity {
+public class AdminLeaveRequestsActivity extends AppCompatActivity implements LeaveReqOnClickListener{
 
     RecyclerView recyclerView;
     final List<LeaveRequestUnit> leaveRequestUnits = new ArrayList<>();
@@ -37,6 +40,7 @@ public class AdminLeaveRequestsActivity extends AppCompatActivity {
     TextView title;
 
     EmployeeDao employeeDao;
+    LeaveDao leaveDao;
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
@@ -51,7 +55,7 @@ public class AdminLeaveRequestsActivity extends AppCompatActivity {
         title.setText(R.string.leave_requests);
 
 
-        leaveRequestsAdapter = new AdminLeaveRequestAdapter(AdminLeaveRequestsActivity.this, leaveRequestUnits);
+        leaveRequestsAdapter = new AdminLeaveRequestAdapter(AdminLeaveRequestsActivity.this, leaveRequestUnits, this);
         recyclerView.setAdapter(leaveRequestsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(AdminLeaveRequestsActivity.this));
         recyclerView.setHasFixedSize(true);
@@ -78,9 +82,10 @@ public class AdminLeaveRequestsActivity extends AppCompatActivity {
                                         String endDate = simpleDateFormat.format(snapshot.getTimestamp("end").toDate());
                                         boolean answered = (boolean) snapshot.getData().get("answered");
                                         boolean accepted = (boolean) snapshot.getData().get("accepted");
+                                        String leaveID = (String)  snapshot.getId();
                                         String employeeName =  document.getString("firstName") + " " + document.getString("lastName");
 
-                                        leaveRequestUnits.add(new LeaveRequestUnit(startDate, endDate, answered, accepted, employeeName));
+                                        leaveRequestUnits.add(new LeaveRequestUnit(startDate, endDate, answered, accepted, employeeName, leaveID));
                                         ((AdminLeaveRequestAdapter) recyclerView.getAdapter()).setLeaveRequestUnits(leaveRequestUnits);
                                     }
                                 }
@@ -104,4 +109,37 @@ public class AdminLeaveRequestsActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onAccept(int pos) {
+        leaveDao = new LeaveDao();
+        Map<String, Object> leave = new HashMap<>();
+        leave.put("answered", true);
+        leave.put("accepted", true);
+        String leaveID = this.leaveRequestUnits.get(pos).getLeaveID();
+        leaveDao.update(leaveID, leave);
+        this.leaveRequestsAdapter.notifyItemChanged(pos);
     }
+
+    @Override
+    public void onReject(int pos) {
+        leaveDao = new LeaveDao();
+        Map<String, Object> leave = new HashMap<>();
+        leave.put("answered", true);
+        leave.put("accepted", false);
+        String leaveID = this.leaveRequestUnits.get(pos).getLeaveID();
+        leaveDao.update(leaveID, leave);
+        this.leaveRequestsAdapter.notifyItemChanged(pos);
+    }
+
+    @Override
+    public void onCancel(int pos) {
+        leaveDao = new LeaveDao();
+        Map<String, Object> leave = new HashMap<>();
+        leave.put("answered", false);
+        leave.put("accepted", false);
+        String leaveID = this.leaveRequestUnits.get(pos).getLeaveID();
+        leaveDao.update(leaveID, leave);
+        this.leaveRequestsAdapter.notifyItemChanged(pos);
+    }
+}

@@ -9,6 +9,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
+
 public class LeaveDao {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -41,6 +43,11 @@ public class LeaveDao {
                 //failure
             }
         });
+    }
+
+    public Task<Void> update(String key, Map<String, Object> leave)
+    {
+        return db.collection("Leave").document(key).update(leave);
     }
 
 

@@ -48,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
         password = findViewById(R.id.admin_profile_password);
         phone = findViewById(R.id.admin_profile_phone);
         saveBtn = findViewById(R.id.admin_profile_save_btn);
-        progressBar = findViewById(R.id.admin_emp_progress_bar);
+        progressBar = findViewById(R.id.admin_profile_progress_bar);
         progressBar.setVisibility(View.VISIBLE);
 
         

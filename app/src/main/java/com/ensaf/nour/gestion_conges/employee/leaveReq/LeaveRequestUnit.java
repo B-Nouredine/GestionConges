@@ -7,6 +7,7 @@ public class LeaveRequestUnit {
     private boolean isAnswered;
     private boolean isAccepted;
     private String employeeName;
+    private String leaveID;
 
     public LeaveRequestUnit(String startDate, String endDate, boolean isAnswered, boolean isAccepted) {
         this.startDate = startDate;
@@ -21,6 +22,15 @@ public class LeaveRequestUnit {
         this.isAnswered = isAnswered;
         this.isAccepted = isAccepted;
         this.employeeName = employeeName;
+    }
+
+    public LeaveRequestUnit(String startDate, String endDate, boolean isAnswered, boolean isAccepted, String employeeName, String leaveID) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.isAnswered = isAnswered;
+        this.isAccepted = isAccepted;
+        this.employeeName = employeeName;
+        this.leaveID = leaveID;
     }
 
     public String getStartDate() {
@@ -61,5 +71,13 @@ public class LeaveRequestUnit {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    public String getLeaveID() {
+        return leaveID;
+    }
+
+    public void setLeaveID(String leaveID) {
+        this.leaveID = leaveID;
     }
 }

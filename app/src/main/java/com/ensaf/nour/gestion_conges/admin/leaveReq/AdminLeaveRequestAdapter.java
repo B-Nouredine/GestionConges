@@ -23,10 +23,12 @@ public class AdminLeaveRequestAdapter extends RecyclerView.Adapter<AdminLeaveReq
 
     Context context;
     List<LeaveRequestUnit> leaveRequestUnits;
+    LeaveReqOnClickListener leaveReqOnClickListener;
 
-    public AdminLeaveRequestAdapter(Context context, List<LeaveRequestUnit> leaveRequestUnits) {
+    public AdminLeaveRequestAdapter(Context context, List<LeaveRequestUnit> leaveRequestUnits, LeaveReqOnClickListener leaveReqOnClickListener) {
         this.context = context;
         this.leaveRequestUnits = leaveRequestUnits;
+        this.leaveReqOnClickListener = leaveReqOnClickListener;
     }
 
     public void setLeaveRequestUnits(List<LeaveRequestUnit> leaveRequestUnits) {
@@ -38,7 +40,7 @@ public class AdminLeaveRequestAdapter extends RecyclerView.Adapter<AdminLeaveReq
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.leave_req_adapter_layout, null);
-        return new MyViewHolder(view);
+        return new MyViewHolder(view, this.leaveReqOnClickListener, this.leaveRequestUnits);
     }
 
     @Override
@@ -101,7 +103,7 @@ public class AdminLeaveRequestAdapter extends RecyclerView.Adapter<AdminLeaveReq
         private Button reject;
         private TextView empName;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, LeaveReqOnClickListener leaveReqOnClickListener, List<LeaveRequestUnit> leaveRequestUnits) {
             super(itemView);
             startDate = itemView.findViewById(R.id.lra_start_date);
             endDate = itemView.findViewById(R.id.lra_end_date);
@@ -116,7 +118,53 @@ public class AdminLeaveRequestAdapter extends RecyclerView.Adapter<AdminLeaveReq
             reject = itemView.findViewById(R.id.lra_reject_btn);
             empName = itemView.findViewById(R.id.lra_empName);
             empName.setVisibility(View.VISIBLE);
+
+            accept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(leaveReqOnClickListener != null)
+                    {
+                        int pos = getAdapterPosition();
+                        if(pos != RecyclerView.NO_POSITION)
+                        {
+                            if(leaveRequestUnits.get(pos) != null)
+                                leaveReqOnClickListener.onAccept(pos);
+                        }
+                    }
+                }
+            });
+
+            reject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(leaveReqOnClickListener != null)
+                    {
+                        int pos = getAdapterPosition();
+                        if(pos != RecyclerView.NO_POSITION)
+                        {
+                            if(leaveRequestUnits.get(pos) != null)
+                                leaveReqOnClickListener.onReject(pos);
+                        }
+                    }
+                }
+            });
+
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(leaveReqOnClickListener != null)
+                    {
+                        int pos = getAdapterPosition();
+                        if(pos != RecyclerView.NO_POSITION)
+                        {
+                            if(leaveRequestUnits.get(pos) != null)
+                                leaveReqOnClickListener.onCancel(pos);
+                        }
+                    }
+                }
+            });
         }
 
-    }
+}
+
 }
